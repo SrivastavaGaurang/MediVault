@@ -21,6 +21,7 @@ export const metadata: Metadata = {
 import { AuthProvider } from "@/components/auth/auth-provider";
 
 import { Header } from "@/components/layout/header";
+import { BackgroundVisual } from "@/components/3d/background-visual";
 
 export default function RootLayout({
   children,
@@ -33,6 +34,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
+          <BackgroundVisual />
           <Header />
           <main className="pt-16 min-h-screen">
             {children}

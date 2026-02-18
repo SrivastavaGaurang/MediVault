@@ -48,8 +48,12 @@ export function SocialButtons() {
             const err = error as { code?: string };
             if (err.code === 'auth/account-exists-with-different-credential') {
                 alert("An account already exists with the same email address but different sign-in credentials.");
+            } else if (err.code === 'auth/unauthorized-domain') {
+                alert("Configuration Error: This domain is not authorized for Google Login. Please add it to the 'Authorized domains' list in the Firebase Console -> Authentication -> Settings.");
+            } else if (err.code === 'auth/operation-not-allowed') {
+                alert("Configuration Error: Google Login is not enabled. Please enable the Google provider in the Firebase Console -> Authentication -> Sign-in method.");
             } else if (err.code !== 'auth/popup-closed-by-user') {
-                alert("Failed to sign in. Please try again.");
+                alert(`Failed to sign in: ${(error as { message: string }).message || err.code}`);
             }
         } finally {
             setIsLoading(null);

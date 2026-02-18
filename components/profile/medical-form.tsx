@@ -13,7 +13,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Loader2, CheckCircle2 } from "lucide-react";
+import { Loader2, CheckCircle2, Plus } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { RecordForm } from "@/components/records/record-form";
+import { RecordsList } from "@/components/records/records-list";
 
 type MedicalProfileData = z.infer<typeof medicalProfileSchema>;
 
@@ -139,6 +142,33 @@ export function MedicalProfileForm() {
                     </div>
                 </CardContent>
             </Card>
+
+            {/* Medical Records Timeline */}
+            <div className="pt-8 space-y-4">
+                <div className="flex items-center justify-between">
+                    <div>
+                        <h3 className="text-xl font-bold text-white">Clinical History</h3>
+                        <p className="text-sm text-slate-400">Timeline of visits, surgeries, and consultations.</p>
+                    </div>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Button size="sm" variant="outline" className="border-slate-800 bg-slate-900/50 hover:bg-slate-800 text-cyan-400">
+                                <Plus className="mr-2 h-4 w-4" /> Add Record
+                            </Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-2xl bg-slate-950 border-slate-800 text-white max-h-[90vh] overflow-y-auto">
+                            <DialogHeader>
+                                <DialogTitle>Add Clinical Record</DialogTitle>
+                                <DialogDescription className="text-slate-400">
+                                    Log details of a doctor visit, surgery, or referral.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <RecordForm />
+                        </DialogContent>
+                    </Dialog>
+                </div>
+                <RecordsList />
+            </div>
 
             <Card className={cardClass}>
                 <CardHeader>

@@ -10,7 +10,7 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { User, QrCode, ClipboardList, ArrowRight } from "lucide-react";
+import { User, QrCode, ClipboardList, ArrowRight, FileText, Plus, Upload } from "lucide-react";
 
 
 export default function DashboardPage() {
@@ -60,6 +60,33 @@ export default function DashboardPage() {
                         gradient="from-fuchsia-500/10 to-pink-500/10"
                         border="group-hover:border-fuchsia-500/30"
                     />
+
+                    <DashboardCard
+                        icon={<FileText className="w-8 h-8 text-emerald-400" />}
+                        title="Diagnostic Reports"
+                        description="Store and organize lab results, X-rays, and other medical documents."
+                        actionLink="/reports"
+                        actionText="View Reports"
+                        gradient="from-emerald-500/10 to-green-500/10"
+                        border="group-hover:border-emerald-500/30"
+                    />
+                </div>
+
+                {/* Quick Actions */}
+                <div className="bg-slate-900/30 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm">
+                    <h3 className="text-lg font-semibold text-white mb-4">Quick Actions</h3>
+                    <div className="flex flex-wrap gap-4">
+                        <Button asChild variant="secondary" className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700">
+                            <Link href="/profile">
+                                <Plus className="mr-2 h-4 w-4 text-cyan-400" /> Log Visit / Surgery
+                            </Link>
+                        </Button>
+                        <Button asChild variant="secondary" className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700">
+                            <Link href="/reports">
+                                <Upload className="mr-2 h-4 w-4 text-emerald-400" /> Upload Report
+                            </Link>
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>

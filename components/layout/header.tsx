@@ -50,6 +50,12 @@ export function Header() {
                             >
                                 Profile
                             </Link>
+                            <Link
+                                href="/reports"
+                                className="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors"
+                            >
+                                Reports
+                            </Link>
                             <div className="h-4 w-px bg-slate-800" />
                             <div className="flex items-center gap-4">
                                 <span className="text-sm text-slate-400 hidden sm:block">

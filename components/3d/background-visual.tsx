@@ -4,10 +4,11 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
 import { useMemo, useRef, Suspense } from "react";
+import { usePathname } from "next/navigation";
 
 function ParticleField() {
     const ref = useRef<THREE.Points>(null);
-    const count = 2000; // Massively increased count
+    const count = 1000; // Reduced count for performance
 
     const positions = useMemo(() => {
         const positions = new Float32Array(count * 3);
@@ -51,9 +52,22 @@ function ParticleField() {
 }
 
 export function BackgroundVisual() {
+    const pathname = usePathname();
+    // Hide on specific pages to improve performance or aesthetics
+    // Also hide on Auth pages since they have their own visual (AuthVisual)
+    const isHidden =
+        pathname === "/share" ||
+        pathname === "/profile" ||
+        pathname === "/login" ||
+        pathname === "/signup";
+
     return (
-        <div className="absolute inset-0 z-0 pointer-events-none">
+        <div
+            className={`absolute inset-0 z-0 pointer-events-none transition-opacity duration-1000 ${isHidden ? 'opacity-0' : 'opacity-100'}`}
+            aria-hidden={isHidden}
+        >
             <Canvas
+                frameloop={isHidden ? "never" : "always"}
                 camera={{ position: [0, 0, 10], fov: 60 }}
                 gl={{ alpha: true, antialias: true }}
                 dpr={[1, 1.5]}
