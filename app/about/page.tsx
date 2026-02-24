@@ -5,7 +5,7 @@ import { DNAHelix } from "@/components/3d/dna-helix";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight, Zap, HeartPulse, Lock, Globe, Smartphone, QrCode, FileText, Users } from "lucide-react";
+import { ArrowRight, HeartPulse, Lock, Globe, Smartphone, QrCode, FileText, Users } from "lucide-react";
 import { TeamSection } from "@/components/about/team-section";
 import { StorySection } from "@/components/about/story-section";
 import { UsageSection } from "@/components/about/usage-section";
