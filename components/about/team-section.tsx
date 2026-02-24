@@ -52,10 +52,10 @@ export function TeamSection() {
                         Behind MediVault
                     </Badge>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-                        Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400">Developer</span>
+                        Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400">Minds</span>
                     </h2>
                     <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        MediVault is a solo passion project built end-to-end by one developer who believes technology can save lives.
+                        MediVault is a passion project built end-to-end by a developer who believes technology can save lives.
                     </p>
                 </motion.div>
 

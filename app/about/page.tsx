@@ -8,6 +8,7 @@ import Link from "next/link";
 import { ArrowRight, Zap, HeartPulse, Lock, Globe, Smartphone, QrCode, FileText, Users } from "lucide-react";
 import { TeamSection } from "@/components/about/team-section";
 import { StorySection } from "@/components/about/story-section";
+import { UsageSection } from "@/components/about/usage-section";
 import { CTASection } from "@/components/about/cta-section";
 import { BentoGrid, BentoGridItem } from "@/components/about/bento-grid";
 import { useRef, Suspense } from "react";
@@ -111,6 +112,7 @@ export default function AboutPage() {
             </section>
 
             <StorySection />
+            <UsageSection />
             <TeamSection />
             <CTASection />
         </div>
