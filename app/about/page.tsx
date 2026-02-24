@@ -5,7 +5,7 @@ import { DNAHelix } from "@/components/3d/dna-helix";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight, Zap, HeartPulse, Lock, Globe, Smartphone } from "lucide-react";
+import { ArrowRight, Zap, HeartPulse, Lock, Globe, Smartphone, QrCode, FileText, Users } from "lucide-react";
 import { TeamSection } from "@/components/about/team-section";
 import { StorySection } from "@/components/about/story-section";
 import { CTASection } from "@/components/about/cta-section";
@@ -48,7 +48,7 @@ export default function AboutPage() {
                         className="relative"
                     >
                         <Badge variant="outline" className="mb-8 border-cyan-500/30 bg-cyan-500/5 text-cyan-400 px-6 py-2 text-xs font-semibold tracking-[0.2em] uppercase backdrop-blur-sm shadow-[0_0_20px_-5px_rgba(34,211,238,0.3)]">
-                            System Version 2.0
+                            Personal Health Record Platform
                         </Badge>
 
                         <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-white mb-6 leading-[0.9]">
@@ -59,7 +59,7 @@ export default function AboutPage() {
                         </h1>
 
                         <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light tracking-wide">
-                            A decentralized medical identity. <span className="text-slate-200 font-medium">Instantly accessible.</span> <span className="text-slate-200 font-medium">Cryptographically secure.</span>
+                            Your complete medical history, emergency QR access, and health records — <span className="text-slate-200 font-medium">always with you.</span> Built to protect lives with <span className="text-slate-200 font-medium">military-grade encryption.</span>
                         </p>
                     </motion.div>
 
@@ -89,10 +89,10 @@ export default function AboutPage() {
 
                 <div className="max-w-7xl mx-auto mb-24 text-center">
                     <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
-                        Engineered for <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">Chaos.</span>
+                        Engineered for <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">Emergencies.</span>
                     </h2>
                     <p className="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                        When seconds count, complexity kills. We built a system that strips away the noise and delivers your vital data instantly, anywhere on Earth.
+                        When seconds count, complexity kills. MediVault strips away the noise and delivers your vital health data instantly — to anyone who needs it, anywhere on Earth.
                     </p>
                 </div>
 
@@ -119,18 +119,18 @@ export default function AboutPage() {
 
 const items = [
     {
-        title: "Instant Verification",
-        description: "Scannable QR codes that work universally without app installation.",
+        title: "Emergency QR Access",
+        description: "Generate a scannable QR code that gives paramedics and ER staff instant, read-only access to your critical medical info — no app install needed.",
         header: (
             <div className="flex flex-1 w-full h-full min-h-[6rem] items-center justify-center rounded-xl bg-blue-500/10 border border-blue-500/20">
-                <Zap className="h-16 w-16 text-blue-500/80 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
+                <QrCode className="h-16 w-16 text-blue-500/80 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
             </div>
         ),
-        icon: <Zap className="h-4 w-4 text-blue-500" />,
+        icon: <QrCode className="h-4 w-4 text-blue-500" />,
     },
     {
-        title: "Encryption Standard",
-        description: "AES-256 encryption ensures your data is seen only by authorized personnel.",
+        title: "AES-256 Encryption",
+        description: "Military-grade encryption protects every byte of your health data. Only you and those you authorize can ever access your records.",
         header: (
             <div className="flex flex-1 w-full h-full min-h-[6rem] items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/20">
                 <Lock className="h-16 w-16 text-emerald-500/80 drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]" />
@@ -139,8 +139,8 @@ const items = [
         icon: <Lock className="h-4 w-4 text-emerald-500" />,
     },
     {
-        title: "Global Availability",
-        description: "Access your records from any device, anywhere in the world.",
+        title: "Global Cloud Access",
+        description: "Your vault lives in the cloud — accessible 24/7 from any phone, tablet, or desktop, anywhere in the world.",
         header: (
             <div className="flex flex-1 w-full h-full min-h-[6rem] items-center justify-center rounded-xl bg-orange-500/10 border border-orange-500/20">
                 <Globe className="h-16 w-16 text-orange-500/80 drop-shadow-[0_0_15px_rgba(249,115,22,0.5)]" />
@@ -149,8 +149,8 @@ const items = [
         icon: <Globe className="h-4 w-4 text-orange-500" />,
     },
     {
-        title: "Vital Stats Dashboard",
-        description: "Real-time view of your critical health metrics and emergency contacts.",
+        title: "Vital Stats & Medical Profile",
+        description: "Store blood type, allergies, current medications, emergency contacts, and chronic conditions all in one structured, scannable medical profile. Doctors get what they need in seconds.",
         header: (
             <div className="flex flex-1 w-full h-full min-h-[6rem] items-center justify-center rounded-xl bg-pink-500/10 border border-pink-500/20">
                 <HeartPulse className="h-16 w-16 text-pink-500/80 drop-shadow-[0_0_15px_rgba(236,72,153,0.5)]" />
@@ -159,13 +159,33 @@ const items = [
         icon: <HeartPulse className="h-4 w-4 text-pink-500" />,
     },
     {
-        title: "Device Agnostic",
-        description: "Works on iOS, Android, and Web browsers seamlessly.",
+        title: "Reports & Document Upload",
+        description: "Upload lab results, prescriptions, imaging reports, and doctor notes. All documents are organized chronologically and searchable.",
         header: (
-            <div className="flex flex-1 w-full h-full min-h-[6rem] items-center justify-center rounded-xl bg-cyan-500/10 border border-cyan-500/20">
-                <Smartphone className="h-16 w-16 text-cyan-500/80 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]" />
+            <div className="flex flex-1 w-full h-full min-h-[6rem] items-center justify-center rounded-xl bg-violet-500/10 border border-violet-500/20">
+                <FileText className="h-16 w-16 text-violet-500/80 drop-shadow-[0_0_15px_rgba(139,92,246,0.5)]" />
             </div>
         ),
-        icon: <Smartphone className="h-4 w-4 text-cyan-500" />,
+        icon: <FileText className="h-4 w-4 text-violet-500" />,
+    },
+    {
+        title: "Controlled Access Sharing",
+        description: "Share your health profile with any doctor, family member, or caregiver via a secure, time-limited, permission-based access link. Revoke anytime.",
+        header: (
+            <div className="flex flex-1 w-full h-full min-h-[6rem] items-center justify-center rounded-xl bg-cyan-500/10 border border-cyan-500/20">
+                <Users className="h-16 w-16 text-cyan-500/80 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]" />
+            </div>
+        ),
+        icon: <Users className="h-4 w-4 text-cyan-500" />,
+    },
+    {
+        title: "Works on Every Device",
+        description: "Fully responsive and optimized for iOS, Android, and all major desktop browsers. No app install required for emergency viewers.",
+        header: (
+            <div className="flex flex-1 w-full h-full min-h-[6rem] items-center justify-center rounded-xl bg-amber-500/10 border border-amber-500/20">
+                <Smartphone className="h-16 w-16 text-amber-500/80 drop-shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
+            </div>
+        ),
+        icon: <Smartphone className="h-4 w-4 text-amber-500" />,
     },
 ];
